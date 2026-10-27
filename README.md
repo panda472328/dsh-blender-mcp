@@ -4,7 +4,7 @@
 
 装上它，你的 Blender 就是场景建模模式的画布：场景里有什么、改完长什么样，它都能直接看到，并落到真实的几何与材质上。
 
-**这是 [ptc-model-check](https://github.com/panda472328/ptc-model-check) 场景建模模式的配套包，两个包必须成对安装。** 只装 ptc-model-check 时，DSH 里没有可用的 Blender 通道，模型会转而自己开无头 Blender 跑脚本——你以为它在改你的场景，其实它看不见。完整安装步骤见 [安装文档](https://github.com/panda472328/ptc-model-check/blob/main/docs/install-blender-mcp.md)。
+**这是 [ptc-model-check](https://github.com/panda472328/dsh-ptc-model-check) 场景建模模式的配套包，两个包必须成对安装。** 只装 ptc-model-check 时，DSH 里没有可用的 Blender 通道，模型会转而自己开无头 Blender 跑脚本——你以为它在改你的场景，其实它看不见。完整安装步骤见 [安装文档](https://github.com/panda472328/dsh-ptc-model-check/blob/main/docs/install-blender-mcp.md)。
 
 1.2.3 修复真实材质预览的临时补光清理：在临时世界副本上调整环境，完成或失败后恢复原世界、视口着色设置，并移除临时相机和补光数据。配合建模检查插件 2.28.0+ 使用真实材质渲染复核程序纹理。更新后需重新加载 Blender 插件；不要把仅显示材质色的预览当成节点渲染结果。
 
@@ -20,11 +20,11 @@ cordis.patch.yml       DSH 侧：把 MCP 服务器接进来（mcp__blender__*）
 
 ## 安装
 
-完整步骤（含 Blender 本体、四层依赖自检、七项验收）见配套插件仓库的 [docs/install-blender-mcp.md](https://github.com/panda472328/ptc-model-check/blob/main/docs/install-blender-mcp.md)。这里是最短路径：
+完整步骤（含 Blender 本体、四层依赖自检、七项验收）见配套插件仓库的 [docs/install-blender-mcp.md](https://github.com/panda472328/dsh-ptc-model-check/blob/main/docs/install-blender-mcp.md)。这里是最短路径：
 
 **0. 把本包装进 DSH profile**（这一步才产生 `mcp__blender__*`）
 
-从 <https://github.com/panda472328/blender-mcp/releases> 下载 `blender-mcp-1.2.3.zip` 解压，然后二选一：
+从 <https://github.com/panda472328/dsh-blender-mcp/releases> 下载 `blender-mcp-1.2.3.zip` 解压，然后二选一：
 
 - 让 AI 用 `plugin_manager` 安装解压目录；
 - 手工在 `$env:DSH_PROFILE_DIR\package.json` 的 `dependencies` 加 `"@local/blender-mcp": "link:<解压目录绝对路径>"`，并在 `dsh.profile.bundles` 数组加 `"@local/blender-mcp"`，然后在 profile 目录执行 `pnpm install`。

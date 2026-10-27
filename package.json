@@ -31,10 +31,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/panda472328/blender-mcp.git"
+    "url": "git+https://github.com/panda472328/dsh-blender-mcp.git"
   },
   "bugs": {
-    "url": "https://github.com/panda472328/blender-mcp/issues"
+    "url": "https://github.com/panda472328/dsh-blender-mcp/issues"
   },
-  "homepage": "https://github.com/panda472328/blender-mcp#readme"
+  "homepage": "https://github.com/panda472328/dsh-blender-mcp#readme"
 }
