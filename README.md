@@ -1,10 +1,8 @@
-# blender-mcp
+# Blender MCP（本地）
 
-让 DSH 直接看见并改动你正在做的 Blender 场景。
+把 DSH 接到本机正在运行的 Blender：一个本地 MCP 服务器 + 一个 Blender addon。默认暴露 12 个基础工具，由 AI 自主编写建模和材质脚本；兼容模式提供全部 52 个工具。
 
-装上它，你的 Blender 就是场景建模模式的画布：场景里有什么、改完长什么样，它都能直接看到，并落到真实的几何与材质上。
-
-**这是 [ptc-model-check](https://github.com/panda472328/dsh-ptc-model-check) 场景建模模式的配套包，两个包必须成对安装。** 只装 ptc-model-check 时，DSH 里没有可用的 Blender 通道，模型会转而自己开无头 Blender 跑脚本——你以为它在改你的场景，其实它看不见。完整安装步骤见 [安装文档](https://github.com/panda472328/dsh-ptc-model-check/blob/main/docs/install-blender-mcp.md)。
+**这是 [ptc-model-check](https://github.com/panda472328/dsh-ptc-model-check) 的配套包，两个包必须成对安装。** 只装 ptc-model-check 时，服务器照样能起、探测全绿，但 DSH 里没有 `mcp__blender__*` 工具——注册它们的是本包的 `cordis.patch.yml`。完整步骤见 [安装文档](https://github.com/panda472328/dsh-ptc-model-check/blob/main/docs/install-blender-mcp.md)。
 
 1.2.3 修复真实材质预览的临时补光清理：在临时世界副本上调整环境，完成或失败后恢复原世界、视口着色设置，并移除临时相机和补光数据。配合建模检查插件 2.28.0+ 使用真实材质渲染复核程序纹理。更新后需重新加载 Blender 插件；不要把仅显示材质色的预览当成节点渲染结果。
 
