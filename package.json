@@ -1,0 +1,40 @@
+{
+  "name": "@local/blender-mcp",
+  "version": "1.2.3",
+  "private": true,
+  "description": "让 DSH 直接看见并改动你正在做的 Blender 场景。",
+  "type": "module",
+  "scripts": {
+    "test": "node tests/verify_script_channel.mjs"
+  },
+  "exports": {
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "src",
+    "addon",
+    "start-server.bat",
+    "tests",
+    "LICENSE",
+    "CHANGELOG.md",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panda472328/blender-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/panda472328/blender-mcp/issues"
+  },
+  "homepage": "https://github.com/panda472328/blender-mcp#readme"
+}

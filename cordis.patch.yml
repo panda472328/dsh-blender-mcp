@@ -1,0 +1,27 @@
+# blender-mcp bundle：把本地 Blender MCP 服务器接进 DSH。
+#
+# 需要先启动服务器（见 README）：
+#   node src/server.mjs
+# 默认端点 http://127.0.0.1:8765/mcp
+#
+# 连上后工具会以 mcp__blender__<工具名> 的形式出现，例如：
+#   mcp__blender__get_scene_info
+#   mcp__blender__add_primitive
+#   mcp__blender__look
+- insert:
+    - id: mcp-blender
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: blender
+        transport: streamable-http
+        url: http://127.0.0.1:8765/mcp
+        # Blender 建模操作（布尔、细分、渲染）可能很慢，超时给足
+        toolCallTimeoutMs: 180000
+        # 服务器没起来时不要让插件加载失败——这样 DSH 照常启动，
+        # 用户起来服务器后重连即可
+        failOnStartupError: false
+        reconnect:
+          enabled: true
+          initialDelayMs: 1000
+          maxDelayMs: 30000
+          maxAttempts: 30

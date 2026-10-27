@@ -1,0 +1,7 @@
+node_modules/
+*.log
+_mcp_out.log
+_mcp_err.log
+.DS_Store
+__pycache__/
+*.pyc
