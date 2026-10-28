@@ -20,8 +20,14 @@
         # 服务器没起来时不要让插件加载失败——这样 DSH 照常启动，
         # 用户起来服务器后重连即可
         failOnStartupError: false
+        # 重连策略（实测教训，建模测试 32）：
+        #   DSH 启动时服务器往往还没起（它由 ptc-model-check 的启动期监督插件拉起，
+        #   或用户手动启动）。原来的 30 次 × 最长 30s 太短——服务器晚到时客户端
+        #   已经放弃，之后即使服务器在线也一直 `server is disconnected`，
+        #   模型就只能自己搭 socket 桥绕过插件。
+        #   改成：一直重试（上限调到很大），间隔上限压到 5s，服务器一出现就接上。
         reconnect:
           enabled: true
-          initialDelayMs: 1000
-          maxDelayMs: 30000
-          maxAttempts: 30
+          initialDelayMs: 500
+          maxDelayMs: 5000
+          maxAttempts: 100000
